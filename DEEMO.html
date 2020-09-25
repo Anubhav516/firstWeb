@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Get the Value</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <input type="text" style="height:200px; ;width:100%;" placeholder="ENTER JSON" id="myInput ">
+        <button type="button" class="btn btn-success" style="height:80px; width:100%;" onclick="getInputValue(); ">Submit</button>
+
+    </div>
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js "></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js "></script>
+
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBqqhORV5vu054DDY42KisPNCV3h_qa1gw ",
+            authDomain: "fir-99593.firebaseapp.com ",
+            databaseURL: "https://fir-99593.firebaseio.com ",
+            projectId: "fir-99593 ",
+            storageBucket: "fir-99593.appspot.com ",
+            messagingSenderId: "935486132083 ",
+            appId: "1:935486132083:web:118068f8fa846b04257f06 ",
+            measurementId: "G-7CD8NXZ0WE "
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var db = firebase.firestore();
+
+
+        function storeInFirestore(data, responce) {
+            db.collection("content ").doc(data).set({
+                "responce ": responce,
+            });
+        }
+
+        function getInputValue() {
+            //FOR GETTING VALUE FROM DATA BY ID 
+            var inputVal = document.getElementById("myInput ").value;
+            //TAKE INPUT FROM JSON AND PUT IN input value
+            var modified = inputVal.replace(/\[\[/gi, '[')
+            modified = modified.replace(/\]\]/gi, ']')
+            var Jin = JSON.parse(modified)
+            console.log(modified);
+            storeInFirestore("Gif ", Jin)
+        }
+    </script>
+</body>
+
+</html>
