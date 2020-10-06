@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>removespaces</title>
+</head>
+
+<body>
+    <script>
+        var myArrayOfSsting = []
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--Chemical Bonding and Molecular Structure=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--Classification of Elements and Periodicity in Properties=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--Coordination Compounds=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--General Principles and Processes of Isolation of Metals (Metallurgy)=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--Hydrogen=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--Qualitative Analysis=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--The d- and f-Block Elements=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--The p-Block Elements=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Inorganic Chemistry--The s-Block Elements=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Organic Chemistry--Alcohols Phenols and Ethers=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Organic Chemistry--Aldehydes Ketones and Carboxylic Acids=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Organic Chemistry--Amines=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Organic Chemistry--Biomolecules=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Organic Chemistry--Haloalkanes and Haloarenes=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Organic Chemistry--Hydrocarbons=0");
+        myArrayOfSsting.push("var Engineering--JEE Advanced--Chemistry--Organic Chemistry--Organic Chemistry- Some Basic Principles and Techniques=0");
+
+        var modE = []
+        for (i = 0; i < myArrayOfSsting.length; i++) {
+            modE.push(myArrayOfSsting[i].split(/\s/).join('').replace(/--/gi, ''));
+            console.log(modE[i].replace(/^(.{3})(.*)$/, "$1 $2").replace(/-/gi, '') + ";");
+        }
+    </script>
+</body>
+
+</html>
